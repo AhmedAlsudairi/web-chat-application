@@ -1,7 +1,7 @@
 <?php
 session_start();
-$_SESSION['room']=$_POST['room'];
-$_SESSION['user']=$_POST['user'];
+$_SESSION['room']= mysqli_real_escape_string($con, $_POST['room']);
+$_SESSION['user']= mysqli_real_escape_string($con, $_POST['user']);
 
 ?>
 <!DOCTYPE html>
