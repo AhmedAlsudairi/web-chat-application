@@ -1,10 +1,7 @@
 <?php
 session_start();
-
-$room= $_SESSION['room'];
-
 $con= new mysqli("localhost","root","","chatroom");
-
+$room= mysqli_real_escape_string($con, $_SESSION['room']);
 if(mysqli_connect_errno($con)!=0)
       die();
 

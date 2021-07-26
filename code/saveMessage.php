@@ -1,12 +1,9 @@
 <?php
 session_start();
-
-$message= $_POST['message'];
-$user= $_SESSION['user'];
-$room= $_SESSION['room'];
-
-
 $con= new mysqli("localhost","root","","chatroom");
+$message= mysqli_real_escape_string($con, $_POST['message']);
+$user= mysqli_real_escape_string($con, $_SESSION['user']);
+$room= mysqli_real_escape_string($con, $_SESSION['room']);
 if(mysqli_connect_errno($con)!=0)
       die();
 
